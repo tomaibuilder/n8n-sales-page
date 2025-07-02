@@ -61,10 +61,20 @@
             </a>
         </div>
 
-        <button id="open-modal-button" class="bg-indigo-600 text-white font-bold py-4 px-8 rounded-lg">
-            Book a Discovery Call
-        </button>
-    </div>
+<button id="footer-book-call" class="bg-gray-700 text-white font-bold py-2 px-4 rounded-lg w-full block text-center">Book a Call</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-800 pt-6 flex justify-between items-center">
+                <p class="text-sm">&copy; 2025 Master n8n Automation. All Rights Reserved.</p>
+                <div class="flex items-center space-x-4">
+                    <a href="https://x.com/tomcrawshaw01" target="_blank" class="hover:text-white"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="privacy.html" class="text-sm hover:text-white">Privacy Policy</a>
+                    <a href="terms.html" class="text-sm hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Modal -->
     <div id="calendar-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
@@ -81,23 +91,27 @@
         const openModalButton = document.getElementById('open-modal-button');
         const closeModalButton = document.getElementById('close-modal-button');
         const modal = document.getElementById('calendar-modal');
+        const footerBookCallButton = document.getElementById('footer-book-call');
 
-        openModalButton.addEventListener('click', () => {
+        function openModal() {
             modal.classList.remove('hidden');
-        });
+        }
 
-        closeModalButton.addEventListener('click', () => {
+        function closeModal() {
             modal.classList.add('hidden');
-        });
+        }
+
+        openModalButton.addEventListener('click', openModal);
+        footerBookCallButton.addEventListener('click', openModal);
+        closeModalButton.addEventListener('click', closeModal);
 
         // Also close modal if user clicks outside of the content area
         modal.addEventListener('click', (event) => {
             if (event.target === modal) {
-                modal.classList.add('hidden');
+                closeModal();
             }
         });
     </script>
-
 
 </body>
 </html>
