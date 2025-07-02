@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Guide to Building a RAG Pipeline with n8n</title>
+    <meta name="description" content="A comprehensive, step-by-step guide to building a full Retrieval-Augmented Generation (RAG) pipeline in n8n to give your AI a long-term memory.">
+    <meta name="keywords" content="n8n rag tutorial, n8n rag, n8n vector store, langchain n8n, n8n knowledge base">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .container {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .prose {
+            color: #d1d5db;
+        }
+        .prose h1, .prose h2, .prose h3, .prose h4, .prose strong {
+            color: #ffffff;
+        }
+        .prose a {
+            color: #818cf8;
+            text-decoration: underline;
+        }
+        .prose code {
+            background-color: #1f2937;
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            border-radius: 3px;
+        }
+        .prose pre {
+            background-color: #111827;
+            padding: 1em;
+            border-radius: 0.5em;
+        }
+        .prose blockquote {
+            border-left-color: #4f46e5;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <div class="bg-indigo-600 text-white text-center p-3 flex items-center justify-center space-x-4">
+        <span class="font-bold">
+            <i class="fa-solid fa-envelope mr-2"></i> Join the AI Client Machine Newsletter for free n8n workflows
+        </span>
+        <a href="newsletter.html" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-4 rounded-lg text-sm">Join Now</a>
+    </div>
+
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50">
+        <div class="container">
+            <nav class="flex items-center justify-between py-4">
+                <a href="index.html" class="font-bold text-xl">Master n8n Automation</a>
+                <ul class="flex items-center space-x-6">
+                    <li><a href="index.html" class="hover:text-indigo-400">Home</a></li>
+                    <li><a href="mentorship.html" class="hover:text-indigo-400">Mentorship</a></li>
+                    <li><a href="tools.html" class="hover:text-indigo-400">Tools</a></li>
+                    <li><a href="blog.html" class="hover:text-indigo-400">Blog</a></li>
+                    <li><a href="contact.html" class="hover:text-indigo-400">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container py-12 md:py-24">
+        <article class="prose max-w-none">
+            <h1>The Ultimate Guide to Building a RAG Pipeline with n8n</h1>
+            <p class="text-gray-400">by Tom Crawshaw</p>
+            
+            <p>This n8n RAG tutorial will show you how to automatically convert any document you upload to Google Drive into searchable embeddings stored in Pinecone. Your AI agents can then query this knowledge base for precise, contextual responses instead of generic outputs.</p>
+
+            <h2>What this n8n RAG Workflow Does</h2>
+            <ul>
+                <li>Monitors Google Drive for new files</li>
+                <li>Downloads and processes documents automatically</li>
+                <li>Splits text into optimal chunks</li>
+                <li>Creates embeddings using OpenAI</li>
+                <li>Stores everything in Pinecone for lightning-fast retrieval</li>
+            </ul>
+
+            <h2>Walkthrough Video + Workflow Download</h2>
+            <p>You can download the complete JSON workflow file to import directly into your n8n instance.</p>
+            <a href="#" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block no-underline">Download the JSON workflow here</a>
+            <div class="my-8">
+                <img src="https://via.placeholder.com/800x450.png/111827/FFFFFF?text=RAG+Walkthrough+Video" alt="A video walkthrough of the n8n RAG tutorial." class="rounded-lg">
+            </div>
+
+            <h2>Prerequisites</h2>
+            <ul>
+                <li><strong>n8n instance:</strong> A self-hosted or cloud account.</li>
+                <li><strong>Google Drive API access:</strong> For document monitoring and retrieval.</li>
+                <li><strong>Pinecone account:</strong> The free tier works perfectly for this setup.</li>
+                <li><strong>OpenAI API key:</strong> For generating embeddings.</li>
+            </ul>
+
+            <h2>Step 1: Get Your API Keys</h2>
+            
+            <h3>Pinecone Setup</h3>
+            <ol>
+                <li><strong>Create Account:</strong> Go to <code>pinecone.io</code> and create a free account.</li>
+                <li><strong>Copy Credentials:</strong> In your dashboard, copy your API Key and Environment name.</li>
+                <li><strong>Create Index:</strong> Create a new index with the following settings:</li>
+                <ul>
+                    <li><strong>Name:</strong> <code>knowledge-base</code> (or your preference)</li>
+                    <li><strong>Dimensions:</strong> <code>1536</code> (this is required for OpenAI's <code>text-embedding-ada-002</code> model)</li>
+                    <li><strong>Metric:</strong> <code>cosine</code></li>
+                </ul>
+            </ol>
+
+            <h3>OpenAI Setup</h3>
+            <ol>
+                <li>Go to <code>platform.openai.com</code>.</li>
+                <li>Create a new API key and copy it.</li>
+            </ol>
+            <blockquote><strong>Security Note:</strong> Keep your API keys secure. Use n8n's built-in credential management or environment variables instead of hardcoding them in your workflows.</blockquote>
+
+            <h3>Google Drive Setup</h3>
+            <ol>
+                <li>Go to the <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a> and create or select a project.</li>
+                <li>Enable the <strong>Google Drive API</strong> for your project.</li>
+                <li>Create OAuth 2.0 credentials.</li>
+                <li>In n8n, add a Google Drive credential and log in with OAuth to connect your account.</li>
+            </ol>
+
+            <h2>Step 2: Import the Workflow</h2>
+            <p>Download the JSON file and import it into your n8n instance. This will create the complete workflow for you.</p>
+            <a href="#" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block no-underline">Download the JSON workflow here</a>
+
+            <h2>Step 3: Configure Each Node</h2>
+            <p>Go through each node in the imported workflow to add your credentials and check the settings.</p>
+            
+            <h4>Google Drive Trigger</h4>
+            <ul>
+                <li>Connect your Google account.</li>
+                <li>Set the trigger event to "File Created".</li>
+                <li>Choose the folder you want to monitor.</li>
+            </ul>
+
+            <h4>Google Drive Download</h4>
+            <ul>
+                <li>Select the same Google account.</li>
+                <li>Operation should be set to "Download".</li>
+                <li>File ID should be set using an expression: <code>={{ $json.id }}</code></li>
+            </ul>
+
+            <h4>Recursive Character Text Splitter</h4>
+            <ul>
+                <li><strong>Chunk Size:</strong> <code>500</code> (a good starting point).</li>
+                <li><strong>Chunk Overlap:</strong> <code>20</code> (prevents losing context between chunks).</li>
+            </ul>
+
+            <h4>OpenAI Embeddings</h4>
+            <ul>
+                <li>Add your OpenAI API key credential.</li>
+                <li><strong>Model:</strong> <code>text-embedding-ada-002</code></li>
+            </ul>
+
+            <h4>Pinecone Vector Store</h4>
+            <ul>
+                <li>Add your Pinecone API key credential.</li>
+                <li><strong>Environment:</strong> Your Pinecone environment name.</li>
+                <li><strong>Index Name:</strong> <code>knowledge-base</code> (or the name you chose).</li>
+                <li><strong>Mode:</strong> Insert</li>
+            </ul>
+
+            <h2>Step 4: Test the Workflow</h2>
+            <ol>
+                <li>Activate the workflow using the toggle in the top right.</li>
+                <li>Upload a test document to your monitored Google Drive folder.</li>
+                <li>Check your Pinecone index to see if the new vectors have been added.</li>
+            </ol>
+
+            <h2>Advanced Configuration & Troubleshooting</h2>
+            
+            <h3>Optimize Chunk Size</h3>
+            <p>Adjusting chunk size based on document type improves retrieval accuracy. Here are some good starting points:</p>
+            <ul>
+                <li><strong>Technical Docs:</strong> 800-1000 characters</li>
+                <li><strong>Marketing Content:</strong> 1200-1500 characters</li>
+                <li><strong>Legal Documents:</strong> 600-800 characters</li>
+            </ul>
+
+            <h3>Common Issues</h3>
+            <ul>
+                <li><strong>Pinecone connection failed:</strong> Check your API key, environment, and index name. Verify the index dimensions are 1536.</li>
+                <li><strong>OpenAI rate limit exceeded:</strong> Add a delay node in your workflow for bulk processing or consider upgrading your OpenAI plan.</li>
+                <li><strong>Text splitting failed:</strong> Ensure your file is UTF-8 encoded and not corrupted.</li>
+            </ul>
+
+            <h2>Next Steps</h2>
+            <p>This workflow is just the beginning. The real power comes from building a second workflow to query this knowledge base. From there, you can:</p>
+            <ul>
+                <li>Build AI agents that reference this knowledge for decision-making.</li>
+                <li>Add more data sources like web pages, databases, and other APIs.</li>
+                <li>Set up automated cleanup systems to manage storage costs.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400">
+        <div class="container py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Logo and Contact -->
+                <div>
+                    <a href="index.html" class="flex items-center space-x-2 mb-4">
+                        <img src="images/image for members site.png" alt="Logo" class="h-10">
+                        <span class="font-bold text-white text-lg">Master n8n Automation</span>
+                    </a>
+                    <p class="mb-2">The ultimate resource for mastering n8n.</p>
+                </div>
+                <!-- Navigation -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Menu</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-indigo-400">Home</a></li>
+                        <li><a href="mentorship.html" class="hover:text-indigo-400">Mentorship</a></li>
+                        <li><a href="tools.html" class="hover:text-indigo-400">Tools</a></li>
+                        <li><a href="blog.html" class="hover:text-indigo-400">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-indigo-400">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Actions -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Get Started</h4>
+                    <div class="space-y-4">
+                        <a href="mentorship.html" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg w-full block text-center">Join Mentorship</a>
+                        <button id="footer-book-call" class="bg-gray-700 text-white font-bold py-2 px-4 rounded-lg w-full block text-center">Book a Call</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-800 pt-6 flex justify-between items-center">
+                <p class="text-sm">&copy; 2025 Master n8n Automation. All Rights Reserved.</p>
+                <div class="flex items-center space-x-4">
+                    <a href="https://x.com/tomcrawshaw01" target="_blank" class="hover:text-white"><i class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="privacy.html" class="text-sm hover:text-white">Privacy Policy</a>
+                    <a href="terms.html" class="text-sm hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
