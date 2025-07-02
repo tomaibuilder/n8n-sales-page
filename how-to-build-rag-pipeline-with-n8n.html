@@ -96,10 +96,13 @@
             <p>You can download the complete JSON workflow file to import directly into your n8n instance.</p>
             <a href="https://github.com/tom-crawshaw/n8n-sales-page/blob/master/n8n-rag-workflow.json" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block no-underline">Download the JSON workflow here</a>
             <div class="my-8">
-                <img src="images/rag.png" alt="A video walkthrough of the n8n RAG tutorial." class="rounded-lg">
+                <img src="images/rag.png" alt="A diagram showing the n8n RAG pipeline architecture." class="rounded-lg">
             </div>
 
+            <div class="my-12 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+
             <h2>Prerequisites</h2>
+            <p>Before we start, make sure you have the following:</p>
             <ul>
                 <li><strong>n8n instance:</strong> A self-hosted or cloud account.</li>
                 <li><strong>Google Drive API access:</strong> For document monitoring and retrieval.</li>
@@ -107,7 +110,10 @@
                 <li><strong>OpenAI API key:</strong> For generating embeddings.</li>
             </ul>
 
+            <div class="my-12 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+
             <h2>Step 1: Get Your API Keys</h2>
+            <p>First, you'll need to collect your API keys from Pinecone and OpenAI.</p>
             
             <h3>Pinecone Setup</h3>
             <ol>
@@ -136,9 +142,19 @@
                 <li>In n8n, add a Google Drive credential and log in with OAuth to connect your account.</li>
             </ol>
 
+            <div class="my-12 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+
             <h2>Step 2: Import the Workflow</h2>
             <p>Download the JSON file and import it into your n8n instance. This will create the complete workflow for you.</p>
             <a href="https://github.com/tom-crawshaw/n8n-sales-page/blob/master/n8n-rag-workflow.json" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block no-underline">Download the JSON workflow here</a>
+
+            <div class="my-12 bg-gray-900/50 rounded-lg p-8 text-center">
+                <h3 class="text-2xl font-bold text-white mb-4">Get Free n8n Workflows</h3>
+                <p class="text-gray-400 mb-6">Join the AI Client Machine newsletter and get weekly breakdowns of the exact n8n workflows that revive cold leads and book sales calls on autopilot.</p>
+                <a href="newsletter.html" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg">Join the Newsletter</a>
+            </div>
+
+            <div class="my-12 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
 
             <h2>Step 3: Configure Each Node</h2>
             <p>Go through each node in the imported workflow to add your credentials and check the settings.</p>
@@ -177,14 +193,20 @@
                 <li><strong>Mode:</strong> Insert</li>
             </ul>
 
+            <div class="my-12 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+
             <h2>Step 4: Test the Workflow</h2>
+            <p>Now it's time to test your new RAG pipeline.</p>
             <ol>
                 <li>Activate the workflow using the toggle in the top right.</li>
                 <li>Upload a test document to your monitored Google Drive folder.</li>
                 <li>Check your Pinecone index to see if the new vectors have been added.</li>
             </ol>
 
+            <div class="my-12 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+
             <h2>Advanced Configuration & Troubleshooting</h2>
+            <p>Here are a few tips for optimizing and troubleshooting your workflow.</p>
             
             <h3>Optimize Chunk Size</h3>
             <p>Adjusting chunk size based on document type improves retrieval accuracy. Here are some good starting points:</p>
@@ -201,6 +223,8 @@
                 <li><strong>Text splitting failed:</strong> Ensure your file is UTF-8 encoded and not corrupted.</li>
             </ul>
 
+            <div class="my-12 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+
             <h2>Next Steps</h2>
             <p>This workflow is just the beginning. The real power comes from building a second workflow to query this knowledge base. From there, you can:</p>
             <ul>
@@ -208,12 +232,6 @@
                 <li>Add more data sources like web pages, databases, and other APIs.</li>
                 <li>Set up automated cleanup systems to manage storage costs.</li>
             </ul>
-
-            <div class="my-12 bg-gray-900/50 rounded-lg p-8 text-center">
-                <h3 class="text-2xl font-bold text-white mb-4">Get Free n8n Workflows</h3>
-                <p class="text-gray-400 mb-6">Join the AI Client Machine newsletter and get weekly breakdowns of the exact n8n workflows that revive cold leads and book sales calls on autopilot.</p>
-                <a href="newsletter.html" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg">Join the Newsletter</a>
-            </div>
         </article>
     </main>
 
@@ -245,12 +263,8 @@
                     <div class="space-y-4">
                         <a href="mentorship.html" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg w-full block text-center">Join Mentorship</a>
                         <button id="footer-book-call" class="bg-gray-700 text-white font-bold py-2 px-4 rounded-lg w-full block text-center">Book a Call</button>
+                        <a href="newsletter.html" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full block text-center">Join the AI Client Machine Newsletter</a>
                     </div>
-                    <h4 class="font-bold text-white mt-8 mb-4">Newsletter</h4>
-                    <form action="newsletter.html" method="get">
-                        <input type="email" name="email" placeholder="Your email..." class="bg-gray-800 border border-gray-700 rounded-lg py-2 px-4 w-full mb-2 text-white">
-                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full">Subscribe</button>
-                    </form>
                 </div>
             </div>
             <div class="mt-8 border-t border-gray-800 pt-6 flex justify-between items-center">
