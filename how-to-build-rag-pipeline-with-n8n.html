@@ -9,11 +9,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+        }
+        body, p, li, blockquote, figcaption {
+            font-family: "IBM Plex Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
         }
         .container {
             max-width: 800px;
@@ -50,7 +58,7 @@
         }
     </style>
 </head>
-<body class="bg-black text-white">
+<body class="bg-[#383838] text-white">
 
     <div class="bg-indigo-600 text-white text-center p-3 flex items-center justify-center space-x-4">
         <span class="font-bold">
@@ -61,8 +69,7 @@
 
     <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50">
         <div class="container">
-            <nav class="flex items-center justify-between py-4">
-                <a href="index.html" class="font-bold text-xl">Master n8n Automation</a>
+            <nav class="flex items-center justify-end py-4">
                 <ul class="flex items-center space-x-6">
                     <li><a href="index.html" class="hover:text-indigo-400">Home</a></li>
                     <li><a href="mentorship.html" class="hover:text-indigo-400">Mentorship</a></li>
@@ -148,7 +155,7 @@
             <p>Download the JSON file and import it into your n8n instance. This will create the complete workflow for you.</p>
             <a href="https://github.com/tom-crawshaw/n8n-sales-page/blob/master/n8n-rag-workflow.json" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block no-underline">Download the JSON workflow here</a>
 
-            <div class="my-12 bg-gray-900/50 rounded-lg p-8 text-center">
+            <div class="my-12 bg-gray-800/50 rounded-lg p-8 text-center">
                 <h3 class="text-2xl font-bold text-white mb-4">Get Free n8n Workflows</h3>
                 <p class="text-gray-400 mb-6">Join the AI Client Machine newsletter and get weekly breakdowns of the exact n8n workflows that revive cold leads and book sales calls on autopilot.</p>
                 <a href="newsletter.html" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg">Join the Newsletter</a>

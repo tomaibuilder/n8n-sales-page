@@ -9,11 +9,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+        }
+        body, p, li, blockquote, figcaption {
+            font-family: "IBM Plex Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
         }
         .container {
             max-width: 800px;
@@ -24,7 +32,7 @@
         }
     </style>
 </head>
-<body class="bg-black text-white">
+<body class="bg-[#383838] text-white">
 
     <div class="bg-indigo-600 text-white text-center p-3 flex items-center justify-center space-x-4">
         <span class="font-bold">
@@ -35,8 +43,7 @@
 
     <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50">
         <div class="container">
-            <nav class="flex items-center justify-between py-4">
-                <a href="index.html" class="font-bold text-xl">Master n8n Automation</a>
+            <nav class="flex items-center justify-end py-4">
                 <ul class="flex items-center space-x-6">
                     <li><a href="index.html" class="hover:text-indigo-400">Home</a></li>
                     <li><a href="mentorship.html" class="hover:text-indigo-400">Mentorship</a></li>
@@ -58,7 +65,7 @@
 
         <div class="space-y-12">
             <!-- GHL -->
-            <div class="bg-gray-900/50 rounded-lg p-8">
+            <div class="bg-gray-800/50 rounded-lg p-8">
                 <h3 class="font-bold text-2xl mb-4 text-indigo-400">GHL - The Engine That Runs It All</h3>
                 <p class="text-gray-300 mb-2"><strong class="text-white">What it does:</strong> CRM, email, SMS, landing pages, and automation, all in one place.</p>
                 <p class="text-gray-300 mb-6"><strong class="text-white">How I use it:</strong> Booking calls, sending campaigns, tracking leads, and managing follow-ups.</p>
@@ -66,7 +73,7 @@
             </div>
 
             <!-- n8n -->
-            <div class="bg-gray-900/50 rounded-lg p-8">
+            <div class="bg-gray-800/50 rounded-lg p-8">
                 <h3 class="font-bold text-2xl mb-4 text-indigo-400">n8n - The Automation Brain</h3>
                 <p class="text-gray-300 mb-2"><strong class="text-white">What it does:</strong> A drag-and-drop workflow builder that connects anything to anything.</p>
                 <p class="text-gray-300 mb-6"><strong class="text-white">How I use it:</strong> Building AI agents, syncing lead data, automating replies, and routing inbound messages.</p>
@@ -74,7 +81,7 @@
             </div>
 
             <!-- Make.com -->
-            <div class="bg-gray-900/50 rounded-lg p-8">
+            <div class="bg-gray-800/50 rounded-lg p-8">
                 <h3 class="font-bold text-2xl mb-4 text-indigo-400">Make.com - Best Automation Tool for Non-Techies</h3>
                 <p class="text-gray-300 mb-2"><strong class="text-white">What it does:</strong> Similar to Zapier, but cheaper and more flexible for complex logic.</p>
                 <p class="text-gray-300 mb-6"><strong class="text-white">How I use it:</strong> API connections, webhook triggers, and backend workflows.</p>
@@ -82,7 +89,7 @@
             </div>
 
             <!-- Perspective -->
-            <div class="bg-gray-900/50 rounded-lg p-8">
+            <div class="bg-gray-800/50 rounded-lg p-8">
                 <h3 class="font-bold text-2xl mb-4 text-indigo-400">Perspective - Fast Funnels That Convert</h3>
                 <p class="text-gray-300 mb-2"><strong class="text-white">What it does:</strong> A mobile-first funnel builder that looks clean and loads fast.</p>
                 <p class="text-gray-300 mb-6"><strong class="text-white">How I use it:</strong> Lead gen quizzes, onboarding flows, and pre-qualification forms.</p>
@@ -90,7 +97,7 @@
             </div>
 
             <!-- Gamma -->
-            <div class="bg-gray-900/50 rounded-lg p-8">
+            <div class="bg-gray-800/50 rounded-lg p-8">
                 <h3 class="font-bold text-2xl mb-4 text-indigo-400">Gamma - Decks and Docs That Don’t Suck</h3>
                 <p class="text-gray-300 mb-2"><strong class="text-white">What it does:</strong> An AI-powered pitch deck and doc creator that actually looks good.</p>
                 <p class="text-gray-300 mb-6"><strong class="text-white">How I use it:</strong> Proposals, demo slides, and internal strategy docs. <a href="https://www.youtube.com/watch?v=BcLAv3jOfLk" target="_blank" class="text-red-400 underline">Watch my YouTube video on it.</a></p>
@@ -98,7 +105,7 @@
             </div>
 
             <!-- Smartlead -->
-            <div class="bg-gray-900/50 rounded-lg p-8">
+            <div class="bg-gray-800/50 rounded-lg p-8">
                 <h3 class="font-bold text-2xl mb-4 text-indigo-400">Smartlead - Cold Email on Autopilot</h3>
                 <p class="text-gray-300 mb-2"><strong class="text-white">What it does:</strong> Unlimited sending, inbox rotation, domain warmup, and follow-up sequences.</p>
                 <p class="text-gray-300 mb-6"><strong class="text-white">How I use it:</strong> Outbound campaigns, client acquisition, and list segmentation.</p>

@@ -9,11 +9,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
+        }
+        body, p, li, blockquote, figcaption {
+            font-family: "IBM Plex Sans", "Inter", "Helvetica Neue", Arial, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
         }
         .container {
             max-width: 800px;
@@ -24,7 +32,7 @@
         }
     </style>
 </head>
-<body class="bg-black text-white">
+<body class="bg-[#383838] text-white">
 
     <div class="bg-indigo-600 text-white text-center p-3 flex items-center justify-center space-x-4">
         <span class="font-bold">
@@ -35,8 +43,7 @@
 
     <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50">
         <div class="container">
-            <nav class="flex items-center justify-between py-4">
-                <a href="index.html" class="font-bold text-xl">Master n8n Automation</a>
+            <nav class="flex items-center justify-end py-4">
                 <ul class="flex items-center space-x-6">
                     <li><a href="index.html" class="text-indigo-400 font-bold">Home</a></li>
                     <li><a href="mentorship.html" class="hover:text-indigo-400">Mentorship</a></li>
@@ -62,21 +69,21 @@
         <section class="mb-24">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Mentorship -->
-                <div class="border border-gray-800 p-6 rounded-lg bg-gray-900/50 text-center">
+                <div class="border border-gray-800 p-6 rounded-lg bg-gray-800/50 text-center">
                     <i class="fa-solid fa-user-graduate text-indigo-400 text-4xl mb-4"></i>
                     <h3 class="font-bold text-2xl mb-2">Mentorship</h3>
                     <p class="text-gray-400 mb-6">Shortcut your learning curve and master n8n in 30 days.</p>
                     <a href="mentorship.html" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg">Learn More</a>
                 </div>
                 <!-- Custom Builds -->
-                <div class="border border-gray-800 p-6 rounded-lg bg-gray-900/50 text-center">
+                <div class="border border-gray-800 p-6 rounded-lg bg-gray-800/50 text-center">
                     <i class="fa-solid fa-cogs text-indigo-400 text-4xl mb-4"></i>
                     <h3 class="font-bold text-2xl mb-2">Custom Builds</h3>
                     <p class="text-gray-400 mb-6">Need a complex, production-ready workflow? I can build it for you.</p>
                     <a href="contact.html" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg">Get a Quote</a>
                 </div>
                 <!-- Free Content -->
-                <div class="border border-gray-800 p-6 rounded-lg bg-gray-900/50 text-center">
+                <div class="border border-gray-800 p-6 rounded-lg bg-gray-800/50 text-center">
                     <i class="fa-solid fa-book-open text-indigo-400 text-4xl mb-4"></i>
                     <h3 class="font-bold text-2xl mb-2">Free Content</h3>
                     <p class="text-gray-400 mb-6">Get free workflows, tutorials, and in-depth build guides to improve your skills.</p>
@@ -91,28 +98,28 @@
         <section class="mb-24">
             <h3 class="text-3xl font-bold text-center mb-8">The Brutal Truth About Learning n8n Solo</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="border border-gray-800 p-6 rounded-lg bg-gray-900/50">
+                <div class="border border-gray-800 p-6 rounded-lg bg-gray-800/50">
                     <div class="flex items-center mb-2">
                         <i class="fa-solid fa-clock text-red-400 text-2xl mr-4"></i>
                         <h4 class="font-bold text-xl text-red-400">Time Wasted on Basics</h4>
                     </div>
                     <p class="text-gray-400">Weeks just figuring out basic node connections.</p>
                 </div>
-                <div class="border border-gray-800 p-6 rounded-lg bg-gray-900/50">
+                <div class="border border-gray-800 p-6 rounded-lg bg-gray-800/50">
                     <div class="flex items-center mb-2">
                         <i class="fa-solid fa-bolt-lightning text-red-400 text-2xl mr-4"></i>
                         <h4 class="font-bold text-xl text-red-400">Fragile Workflows</h4>
                     </div>
                     <p class="text-gray-400">Months building workflows that break the moment real data hits them.</p>
                 </div>
-                <div class="border border-gray-800 p-6 rounded-lg bg-gray-900/50">
+                <div class="border border-gray-800 p-6 rounded-lg bg-gray-800/50">
                     <div class="flex items-center mb-2">
                         <i class="fa-solid fa-bug text-red-400 text-2xl mr-4"></i>
                         <h4 class="font-bold text-xl text-red-400">Debugging Nightmares</h4>
                     </div>
                     <p class="text-gray-400">Hours debugging simple errors that should take minutes.</p>
                 </div>
-                <div class="border border-gray-800 p-6 rounded-lg bg-gray-900/50">
+                <div class="border border-gray-800 p-6 rounded-lg bg-gray-800/50">
                     <div class="flex items-center mb-2">
                         <i class="fa-solid fa-circle-question text-red-400 text-2xl mr-4"></i>
                         <h4 class="font-bold text-xl text-red-400">Self-Doubt</h4>
@@ -131,7 +138,7 @@
         <!-- About Section -->
         <section>
             <h3 class="text-3xl font-bold text-center mb-8">Who Am I?</h3>
-            <div class="bg-gray-900/50 rounded-lg p-8 md:flex md:items-center md:gap-8">
+            <div class="bg-gray-800/50 rounded-lg p-8 md:flex md:items-center md:gap-8">
                 <div class="md:w-1/3 text-center mb-6 md:mb-0">
                     <img src="images/tom.jpg" alt="Tom Crawshaw, n8n automation expert" class="rounded-full mx-auto w-48 h-48 object-cover">
                 </div>
