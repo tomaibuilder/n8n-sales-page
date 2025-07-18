@@ -40,8 +40,8 @@
 
 *   **Headline:** Why I'm Opening Up 5 Mentorship Spots
 *   **Social Proof Stats (as a visual element/grid):**
-    *   **9.2K+ Followers** on X
-    *   **4.2M+ Impressions**
+    *   **11K+ Followers** on X
+    *   **5M+ Impressions**
 *   **The Story:** "When I dropped what I called 'the last n8n guide you'll ever need' on X, it exploded. My DMs got flooded. Not with 'thanks for the guide' messages. With 'Can you just help me build this?' requests."
 *   **The Realization:** "People were tired of guides. Tired of tutorials. Tired of figuring it out alone. They wanted someone to sit with them, point out what they were missing, and help them actually finish something that worked."
 *   **The Solution:** "That's why I'm opening up 5 spots for direct n8n mentorship."
