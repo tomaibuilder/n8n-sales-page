@@ -28,5 +28,8 @@ Before every commit, the agent MUST perform the following checks:
     - Does the footer appear correctly on all pages?
     - Is the color scheme and font usage consistent with the established style?
 
+- **[ ] Analytics Check:**
+    - Does the page include the Google Analytics tracking code in the `<head>` section?
+
 ## How to Use This File
 I will read this file at the beginning of each session to remind myself of the rules. I will verbally confirm that I have completed the pre-commit checklist before pushing any changes.
